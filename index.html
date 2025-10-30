@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Park-Kar - Smartest Parking App</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+<header>
+    <nav class="container">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-bolt"></i>
+            Park-Kar
+        </a>
+        <ul class="nav-links">
+             <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="auth-buttons" id="logged-out-nav">
+            <a href="login/login.html" class="btn btn-login">Login</a>
+            <a href="login/signup.html" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <div class="profile-menu" id="logged-in-nav" style="display: none;">
+            <div class="avatar" id="avatar-button">
+                <span id="avatar-initial"></span>
+                </div>
+            
+            <div class="dropdown-menu" id="dropdown">
+                <div class="dropdown-header">
+                    <h4 id="user-name">Loading...</h4>
+                    <span id="user-since">Member since 2025</span>
+                </div>
+                <ul>
+                    <li>
+                        <a href="Dashboard/dashboard.html">
+                            <i class="fa-solid fa-table-columns"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Settings/settings.html">
+                            <i class="fa-solid fa-cog"></i> Settings
+                        </a>
+                    </li>
+                    <li id="sign-out-button">
+                        <i class="fa-solid fa-sign-out-alt"></i> Sign Out
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+</header>
+    <main>
+        <section class="hero container">
+            
+            <div class="hero-content">
+                <span class="tag">
+                    <i class="fa-solid fa-sparkles"></i>
+                    India's Smartest Parking App
+                </span>
+                
+                <h1>Never Circle the Block Again</h1>
+                
+                <p>Find, book, and pay for parking in seconds with AI-powered search and real-time availability. Now with EV charging!</p>
+                
+                <div class="action-buttons">
+                    <a href="actions.html" class="btn btn-primary">
+                        Get Started 
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i>
+                        Download App
+                    </a>
+                </div>
+                
+                <div class="social-proof">
+                    <span>
+                        <i class="fa-solid fa-check-circle"></i>
+                        KYC Verified
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-star"></i>
+                        4.8/5 Rating
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-users"></i>
+                        5K+ Users
+                    </span>
+                </div>
+            </div>
+            
+            <div class="hero-image-container">
+                <img src="resources/page1.jpg" alt="Parking lot with cars">
+                
+                <div class="info-card spots-card">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                    </div>
+                    <div class="card-text">
+                        <span>Available</span>
+                        <strong>250 Spots</strong>
+                    </div>
+                </div>
+
+                <div class="info-card ev-card">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-charging-station"></i>
+                    </div>
+                    <div class="card-text">
+                        <span>EV Charging</span>
+                        <strong>Available</strong>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <!-- next section -->
+         <section class="stats">
+    <div class="stat-item">
+        <div class="icon-container">
+            <i class="fa-solid fa-car"></i>
+        </div>
+        <h3>1K+</h3>
+        <p>Parking Spaces</p>
+    </div>
+    <div class="stat-item">
+        <div class="icon-container">
+            <i class="fa-solid fa-users"></i>
+        </div>
+        <h3>5K+</h3>
+        <p>Active Users</p>
+    </div>
+    <div class="stat-item">
+        <div class="icon-container">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+        <h3>50+</h3>
+        <p>EV Chargers</p>
+    </div>
+    <div class="stat-item">
+        <div class="icon-container">
+            <i class="fa-solid fa-globe"></i>
+        </div>
+        <h3>2</h3>
+        <p>Cities</p>
+    </div>
+</section>
+
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <span class="tag">How It Works</span>
+        <h2>Park in 4 Simple Steps</h2>
+        <p class="subheading">From searching to parking - seamless and fast</p>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-map-marker-alt"></i>
+                </div>
+                <span class="step-label">Step 1</span>
+                <h4>Search</h4>
+                <p>Find nearby parking with smart filters</p>
+            </div>
+
+            <div class="step-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <span class="step-label">Step 2</span>
+                <h4>Book</h4>
+                <p>Select slot and confirm booking</p>
+            </div>
+
+            <div class="step-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-location-arrow"></i>
+                </div>
+                <span class="step-label">Step 3</span>
+                <h4>Navigate</h4>
+                <p>GPS guides you to your spot</p>
+            </div>
+
+            <div class="step-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <span class="step-label">Step 4</span>
+                <h4>Park & Pay</h4>
+                <p>QR entry, park, and pay securely</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="features-section" id="features">
+    <div class="container">
+        
+        <span class="tag">Features</span>
+        <h2 class="section-title-blue">Everything You Need To Park Smart</h2>
+        <p class="subheading">Powerful features designed for modern urban mobility</p>
+
+        <div class="features-grid">
+            
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h4>AI-Powered Search</h4>
+                <p>Smart algorithms find the perfect parking spot based on your location and preferences in seconds.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-tower-broadcast"></i>
+                </div>
+                <h4>Real-Time Updates</h4>
+                <p>IoT sensors provide live availability with 99.9% accuracy. See what's available right now.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <h4>EV Charging Integrated</h4>
+                <p>Find and book EV charging slots with fast/slow charging options and live status tracking.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-location-arrow"></i>
+                </div>
+                <h4>GPS Navigation</h4>
+                <p>Turn-by-turn directions guide you straight to your reserved spot. Never get lost.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
+                <h4>QR Code Entry</h4>
+                <p>Contactless entry and exit. Scan QR code at the gate for instant access.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h4>Seamless Payments</h4>
+                <p>UPI, cards, wallets - pay however you want. Instant confirmation and digital receipts.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="why-section-wrapper"id="about">
+    
+    <div class="why-par-kar-card">
+        
+        <div class="card-content-wrapper">
+            
+            <div class="why-content">
+                <span class="tag">Why ParK-Kar</span>
+                <h2 class="section-title-blue-small">India's First AI + IoT Parking Platform</h2>
+                <p>We combine artificial intelligence and IoT sensors to revolutionize parking in India. Real-time data, smart predictions, and seamless EV charging integration.</p>
+                
+                <ul class="feature-list">
+                    <li>
+                        <div class="icon-container-small">
+                            <i class="fa-solid fa-microchip"></i> 
+                        </div>
+                        <span>AI predicts availability with 99.9% accuracy</span>
+                    </li>
+                    <li>
+                        <div class="icon-container-small">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <span>IoT sensors for real-time updates</span>
+                    </li>
+                    <li>
+                        <div class="icon-container-small">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <span>50+ EV charging stations integrated</span>
+                    </li>
+                    <li>
+                        <div class="icon-container-small">
+                            <i class="fa-solid fa-shield-halved"></i> 
+                        </div>
+                        <span>All providers are KYC verified</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="why-image">
+                <img src="resources/evvv.png" alt="EV Charging Station">
+                <!-- <img src="https://via.placeholder.com/500x400/cccccc/969696.png?text=Replace+with+EV+image" alt="EV Charging Station"> -->
+
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
+
+<!-- can be change lorem-->
+ <section class="testimonials-section">
+    <div class="container">
+        <span class="tag">Testimonials</span>
+        <h2 class="section-title-blue">Loved by Users Across India</h2>
+    </div>
+
+    <div class="scroller-wrapper">
+        <div class="scroller-inner">
+            
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Park-Kar saved me 30 minutes every day! No more circling for parking. The EV charging feature is perfect for my Tesla."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-r">R</div>
+                    <div class="user-details">
+                        <h4>Rajesh Kumar</h4>
+                        <span>Software Engineer, Bangalore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"As a provider, the dashboard is amazing. I track everything in real-time and the KYC process was super smooth."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-p">P</div>
+                    <div class="user-details">
+                        <h4>Priya Sharma</h4>
+                        <span>Business Owner, Mumbai</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Love the notifications! I get alerts before my slot expires. Best parking app I've used in India."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-a">A</div>
+                    <div class="user-details">
+                        <h4>Amit Patel</h4>
+                        <span>Marketing Manager, Delhi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <p>"The GPS navigation is spot on. It took me directly to my reserved slot in a crowded basement. Highly recommend."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-s">S</div>
+                    <div class="user-details">
+                        <h4>Sunita Rao</h4>
+                        <span>Doctor, Hyderabad</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Seamless payments. I just use UPI, and it's done. No more fumbling for change at the exit gate. A real game-changer."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-v">V</div>
+                    <div class="user-details">
+                        <h4>Vikram Singh</h4>
+                        <span>Student, Pune</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Booking a spot in advance for mall visits is fantastic. I save so much time and hassle. The app is simple and just works."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-m">M</div>
+                    <div class="user-details">
+                        <h4>Meera Iyer</h4>
+                        <span>Architect, Chennai</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Park-Kar saved me 30 minutes every day! No more circling for parking. The EV charging feature is perfect for my Tesla."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-r">R</div>
+                    <div class="user-details">
+                        <h4>Rajesh Kumar</h4>
+                        <span>Software Engineer, Bangalore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"As a provider, the dashboard is amazing. I track everything in real-time and the KYC process was super smooth."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-p">P</div>
+                    <div class="user-details">
+                        <h4>Priya Sharma</h4>
+                        <span>Business Owner, Mumbai</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Love the notifications! I get alerts before my slot expires. Best parking app I've used in India."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-a">A</div>
+                    <div class="user-details">
+                        <h4>Amit Patel</h4>
+                        <span>Marketing Manager, Delhi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <p>"The GPS navigation is spot on. It took me directly to my reserved slot in a crowded basement. Highly recommend."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-s">S</div>
+                    <div class="user-details">
+                        <h4>Sunita Rao</h4>
+                        <span>Doctor, Hyderabad</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Seamless payments. I just use UPI, and it's done. No more fumbling for change at the exit gate. A real game-changer."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-v">V</div>
+                    <div class="user-details">
+                        <h4>Vikram Singh</h4>
+                        <span>Student, Pune</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Booking a spot in advance for mall visits is fantastic. I save so much time and hassle. The app is simple and just works."</p>
+                <div class="user-info">
+                    <div class="avatar avatar-m">M</div>
+                    <div class="user-details">
+                        <h4>Meera Iyer</h4>
+                        <span>Architect, Chennai</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<section class="contact-section"  id="contact">
+    <div class="container">
+        
+        <span class="tag">Contact Us</span>
+        <h2 class="section-title-blue">Get in Touch</h2>
+        <p class="subheading">Have questions? We're here to help. Reach out to our team.</p>
+
+        <div class="contact-grid">
+            
+            <a href="support.html" class="contact-card-link">
+                <div class="contact-card">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h4>Support</h4>
+                    <p>24/7 customer support</p>
+                    <span >support@park-kar.com</span>
+                    <!-- <span class="contact-link">support@par-kar.com</span> -->
+                </div>
+            </a>
+
+            <a href="sales.html" class="contact-card-link">
+                <div class="contact-card">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4>Sales</h4>
+                    <p>For business inquiries</p>
+                    <span >sales@park-kar.com</span>
+                    <!-- <span class="contact-link">sales@par-kar.com</span> -->
+                </div>
+            </a>
+
+            <a href="privacy.html" class="contact-card-link">
+                <div class="contact-card">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Privacy Policy</h4>
+                    <p>Term & conditions</p>
+                    <span >View Details</span>
+                    <!-- <span class="contact-link">View Details</span> -->
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+<section class="stay-connected-section">
+    <div class="container">
+        
+        <span class="tag">WE'D LOVE TO HEAR FROM YOU</span>
+        <h2 class="section-title-blue">Stay Connected</h2>
+        <p class="subheading">Don't hesitate to reach out for any inquiries or feedback.
+            <br>We're always here to help and improve your parking experience. Contact us now!
+        </p>
+
+        <div class="contact-grid-wrapper">
+            
+            <div class="contact-info-col">
+                <div class="map-embed">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111989.15941009144!2d77.3126263884086!3d28.69977877122363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf1bb41c50fdf%3A0xe6f06fd26a7798ba!2sGhaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1761846704390!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <h5>REACH US THROUGH</h5>
+                <ul class="contact-details-list">
+                    <li>
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        <span>Team Park-Kar</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 8802876042</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>contact@park-kar.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contact-form-col">
+                <div class="contact-form-card">
+                    <h4>Let's get in touch!</h4>
+                    <p>Have a parking related query, fill the form and we'll connect with you shortly</p>
+                    
+                    <form id="contact-form">
+                        <input type="text" id="contact-name" placeholder="Name" required>
+                        <input type="tel" id="contact-phone" placeholder="Phone">
+                        <input type="text" id="contact-city" placeholder="City">
+                        <input type="text" id="contact-company" placeholder="Company Name">
+                        <textarea id="contact-message" placeholder="Message" rows="4" required></textarea>
+                        
+                        <button type="submit" class="btn btn-blue-submit">Submit</button>
+                    </form>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<section class="cta-section">
+    <div class="container">
+        <p class="cta-subtitle">Ready to Park Smarter?</p>
+        <h2>Join 50,00+ users who never worry about parking. Download Park-Kar today!</h2>
+        
+        <div class="cta-buttons">
+            <a href="download.html" class="btn btn-cta-main">
+                <i class="fa-solid fa-download"></i>
+                Download App Now
+            </a>
+            <a href="features.html" class="btn btn-cta-outline">
+                Learn More
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+    </main>
+    <footer>
+    <div class="container footer-grid">
+        
+        <div class="footer-col" id="footer-logo-col">
+            <a href="xyz.html" class="logo">
+                <i class="fa-solid fa-bolt"></i>
+                Park-Kar
+            </a>
+            <p>India's smartest parking platform powered by AI and IoT</p>
+        </div>
+
+        <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="providers.html">For Providers</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 Park-Kar. All rights reserved. Built for India's urban future.</p>
+    </div>
+</footer>
+<script src="config.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+    <script src="main.js"></script>
+    </body>
+
+</html>

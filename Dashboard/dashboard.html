@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Par-Kar</title>
+    <link rel="stylesheet" href="../login/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Add a bit of custom style */
+        body { background-color: #f8faff; }
+        .profile-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+        h2 { 
+            text-align: center; 
+            color: #1a2b48; 
+            margin-bottom: 25px; 
+        }
+        
+        /* This removes the browser's default input styles */
+        .form-group input[type="text"],
+        .form-group input[type="tel"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007aff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2 id="form-title">Complete Your Profile</h2>
+        <form id="profile-form">
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                  <div class="input-wrapper">
+    <i class="fa-solid fa-user icon-left"></i> <input type="text" id="name" placeholder="Enter your full name" required>
+</div>
+            </div>
+          
+
+            
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <div class="input-wrapper">
+    <i class="fa-solid fa-phone icon-left"></i> <input type="tel" id="phone" placeholder="Enter your phone number">
+</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="save-button">Save Profile</button>
+            <a href="../index.html" class="back-link">&larr; Back to Home</a>
+            
+            <p id="success-message" style="color: green; text-align:center; display:none; margin-top: 15px;">Profile saved successfully!</p>
+        </form>
+    </div>
+
+
+     <script src="../config.js"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

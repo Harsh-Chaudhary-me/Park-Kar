@@ -1,0 +1,125 @@
+/* --- Styles for actions.html --- */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8faff; /* Light blue background */
+    color: #1a2b48;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.actions-container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a2b48;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #556;
+    margin-bottom: 40px;
+}
+
+/* Grid for the 4 cards */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Individual card styling */
+.action-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Icon / Vector Placeholder */
+.card-icon {
+    font-size: 36px;
+    color: #007aff; /* Your default blue shade */
+    margin-right: 25px;
+    padding: 20px;
+    background-color: #f0f5ff; /* Light blue bg for the icon */
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+/* To use a vector image instead of an icon: */
+.card-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Text content */
+.card-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a2b48;
+    margin: 0 0 8px 0;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #556;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Hover Effects --- */
+.action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 122, 255, 0.15); /* Blue shadow */
+}
+
+.action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 122, 255, 0.05), rgba(0, 191, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.action-card:hover::before {
+    opacity: 1;
+}
+
+/* "Back to Home" link */
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #007aff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

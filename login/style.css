@@ -1,0 +1,223 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Using Poppins from your site */
+    background-color: #f4f7f6;
+    height: 100vh;
+}
+
+/* --- Main Auth Container --- */
+.auth-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* --- 1. Blue Header --- */
+.auth-header {
+    background: linear-gradient(135deg, #00bfff, #007aff);
+    height: 300px;
+    padding-top: 40px;
+    text-align: center;
+    color: white;
+}
+
+.auth-header .logo {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-header .logo i {
+    color: #007aff;
+    font-size: 28px;
+}
+
+.auth-header h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.auth-header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* --- 2. White Form Container --- */
+.auth-form-container {
+    position: relative; /* Changed from absolute */
+    background-color: #fff;
+    max-width: 420px;
+    margin: 0 auto;
+    margin-top: -100px; /* Pulls it up over the blue header */
+    padding: 30px;
+    border-radius: 20px 20px 8px 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Adds space at the bottom */
+}
+
+/* --- Form Elements --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Left padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #007aff;
+    background-color: #fff;
+}
+
+.input-wrapper i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+/* .input-wrapper i.fa-envelope,
+.input-wrapper i.fa-lock {
+    left: 15px;
+} */
+ 
+ 
+ /* Positions any icon on the left side of an input */
+.input-wrapper i.icon-left {
+    left: 15px;
+}
+
+.input-wrapper i.fa-eye,
+.input-wrapper i.fa-eye-slash {
+    right: 15px;
+    cursor: pointer;
+}
+
+/* --- Form Options (Remember me / Forgot) --- */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #555;
+}
+
+.form-options a {
+    color: #007aff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+/* --- Buttons --- */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00bfff, #007aff);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.2);
+}
+.btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+}
+
+.btn-google {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.btn-google img {
+    height: 18px;
+}
+.btn-google:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- Divider & Redirect --- */
+.divider {
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+    margin: 25px 0 5px 0;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ddd;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.redirect-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.redirect-link a {
+    color: #007aff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.redirect-link a:hover {
+    text-decoration: underline;
+}

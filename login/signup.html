@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Park-Kar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h2>Create an Account</h2>
+            <p>Sign up to get started</p>
+        </div>
+        <div class="auth-form-container">
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                     <div class="input-wrapper">
+                  <i class="fa-solid fa-envelope icon-left"></i>
+                   <input type="email" id="signup-email" placeholder="your.email@example.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                     <div class="input-wrapper">
+                  <i class="fa-solid fa-lock icon-left"></i>
+                   <input type="password" id="signup-password" placeholder="Create a password" required>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                   <i class="fa-solid fa-lock icon-left"></i> 
+                   <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                   </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="signup-button">Sign Up</button>
+            </form>
+
+            <div class="divider">Or continue with</div>
+
+            <button class="btn btn-google" id="google-signin">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo">
+                Sign up with Google
+            </button>
+
+            <div class="redirect-link">
+                <p>Already have an account? <a href="login.html">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+ <script src="../config.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+    <script src="auth.js"></script>
+</body>
+</html>

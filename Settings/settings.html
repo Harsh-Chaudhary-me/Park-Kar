@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - Par-Kar</title>
+    <link rel="stylesheet" href="../login/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Custom styles for the settings page */
+        body { background-color: #f8faff; }
+        .settings-container {
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .settings-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        h2 { 
+            text-align: center; 
+            color: #1a2b48; 
+            margin-bottom: 25px; 
+        }
+        
+        /* This removes the browser's default input styles */
+        /* and lets our login/style.css take over */
+        .form-group input[type="password"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        /* Style for the "Delete" button */
+        .btn-danger {
+            background: #e53935; /* Red */
+            color: white;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.2);
+        }
+        .btn-danger:hover {
+            background: #c62828; /* Darker red */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007aff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="settings-container">
+        
+        <div class="settings-card">
+            <h2>Change Password</h2>
+            <form id="change-password-form">
+
+                
+
+
+                
+                <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                   <div class="input-wrapper">
+               <i class="fa-solid fa-lock icon-left"></i> 
+               <input type="password" id="current-password" placeholder="Enter your current password" required>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <div class="input-wrapper">
+    <i class="fa-solid fa-lock icon-left"></i>
+     <input type="password" id="new-password" placeholder="Enter a new password" required>
+</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-new-password">Confirm New Password</label>
+                    <div class="input-wrapper">
+    <i class="fa-solid fa-lock icon-left"></i> 
+    <input type="password" id="confirm-new-password" placeholder="Confirm your new password" required>
+</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Update Password</button>
+                <p id="password-success" style="color:green; text-align:center; display:none; margin-top:15px;">Password updated successfully!</p>
+                <p id="password-error" style="color:red; text-align:center; display:none; margin-top:15px;"></p>
+            </form>
+        </div>
+
+        <div class="settings-card">
+            <h2>Delete Account</h2>
+            <p style="color: #555; text-align: center; margin-bottom: 20px;">
+                This action is permanent and cannot be undone. All your data will be erased.
+            </p>
+            <button class="btn btn-danger" id="delete-account-button">Delete My Account</button>
+        </div>
+
+        <a href="../index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+<script src="../config.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+    <script src="settings.js"></script>
+</body>
+</html>
+</body>
+</html>

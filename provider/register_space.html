@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Space - Par-Kar</title>
+    
+    <link rel="stylesheet" href="../login/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- Custom Styles for Provider Page --- */
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="number"],
+        .form-group input[type="time"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        body { background-color: #f8faff; }
+        .provider-container {
+            max-width: 650px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+            padding: 30px 40px;
+        }
+        h2 { text-align: center; color: #1a2b48; margin-bottom: 25px; }
+        h3 { font-size: 22px; font-weight: 600; color: #1a2b48; margin-bottom: 10px; }
+        .form-step p { font-size: 15px; color: #556; margin-bottom: 25px; }
+
+        hr { border: none; height: 1px; background-color: #eef2f5; margin: 25px 0; }
+        
+        /* --- NEW MAP STYLES --- */
+        .map-section {
+            margin-bottom: 20px;
+        }
+        #map-search {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            z-index: 10;
+            position: relative;
+        }
+        #map-container {
+            height: 350px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        /* --- END NEW MAP STYLES --- */
+
+        .privacy-note {
+            display: flex; align-items: center; background-color: #f8faff;
+            border: 1px solid #b3d7ff; border-radius: 8px; padding: 15px;
+            font-size: 14px; color: #334; margin-bottom: 25px;
+        }
+        .privacy-note i { color: #007aff; margin-right: 12px; font-size: 18px; }
+
+        .file-upload-group { margin-bottom: 15px; }
+        .file-upload-group label {
+            display: block; font-weight: 600; font-size: 14px;
+            color: #333; margin-bottom: 8px;
+        }
+        .file-upload-group input[type="file"] {
+            font-family: 'Poppins', sans-serif; font-size: 15px; color: #556;
+            padding: 10px 15px; border: 1px dashed #ccc; border-radius: 8px;
+            width: 100%; cursor: pointer; transition: all 0.3s ease;
+        }
+        .file-upload-group input[type="file"]:hover { border-color: #007aff; background-color: #f8faff; }
+        .file-upload-group input[type="file"]::file-selector-button {
+            background: #007aff; color: #fff; border: none; padding: 8px 12px;
+            border-radius: 6px; font-weight: 500; font-family: 'Poppins', sans-serif;
+            cursor: pointer; margin-right: 15px; transition: background-color 0.2s ease;
+        }
+        .file-upload-group input[type="file"]::file-selector-button:hover { background: #0056b3; }
+
+        .btn-primary { width: 100%; margin-top: 15px; }
+        .loader { margin: 25px auto; }
+        .form-step { display: none; }
+        .form-step.active { display: block; }
+        
+
+.time-input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+/*
+  This powerful rule targets BOTH inputs AND selects 
+  inside our new wrapper, making them look identical.
+*/
+.time-input-wrapper input[type="number"],
+.time-input-wrapper select {
+    width: 100%;
+    padding: 12px 15px; /* Reset padding to be even (no icon) */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.time-input-wrapper select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+.time-input-wrapper input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+.time-input-wrapper input[type="number"]::-webkit-outer-spin-button,
+.time-input-wrapper input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.time-input-wrapper input[type="number"]:focus,
+.time-input-wrapper select:focus {
+    outline: none;
+    border-color: #007aff;
+    background-color: #fff;
+}
+
+.time-input-wrapper select:required:invalid {
+    color: #999;
+}
+.time-input-wrapper option {
+    color: #1a2b48;
+}
+.time-input-wrapper option[value=""][disabled] {
+    color: #999;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="provider-container">
+        <h2 id="form-title">List Your Parking Space</h2>
+        
+        <form id="list-space-form">
+
+            <div class="form-step active" id="step-1">
+                <h3>Step 1: Property Details</h3>
+                
+                <div class="form-group">
+                    <label for="name">Listing Name (e.g., "My Driveway Spot")</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group map-section">
+                    <label for="map-search">Exact Location Address</label>
+                    <p style="font-size: 13px; margin-bottom: 10px;">Search for your address or drag the pin to the exact spot.</p>
+                    
+                    <input type="text" id="map-search" placeholder="Search for an address..." required>
+                    
+                    <div id="map-container"></div>
+                    
+                    <input type="hidden" id="lat">
+                    <input type="hidden" id="lng">
+                    
+                    <label for="address" style="margin-top: 10px;">Verified Address (auto-filled)</label>
+                    <div class="input-wrapper">
+                         <input type="text" id="address" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Contact Number (for verification)</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone icon-left"></i>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Location Size (e.g., "Compact Car", "SUV")</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="size" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="total-slots">Total # of Vehicle Parking Slots</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-car icon-left"></i>
+                        <input type="number" id="total-slots" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Price Per Hour (₹)</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-indian-rupee-sign icon-left"></i>
+                        <input type="number" id="price" required>
+                    </div>
+                </div>
+
+               <div class="form-group">
+    <label>Available From (Start Time)</label>
+    <div class="time-input-group">
+        <div class="input-wrapper time-input-wrapper">
+            <select id="time-start-hr" required>
+                <option value="" disabled selected>Hour</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="input-wrapper time-input-wrapper">
+            <input type="number" id="time-start-min" placeholder="Min" min="0" max="59" required>
+        </div>
+        <div class="input-wrapper time-input-wrapper">
+            <select id="time-start-ampm" required>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Available To (End Time)</label>
+    <div class="time-input-group">
+        <div class="input-wrapper time-input-wrapper">
+            <select id="time-end-hr" required>
+                <option value="" disabled selected>Hour</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</input>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="input-wrapper time-input-wrapper">
+            <input type="number" id="time-end-min" placeholder="Min" min="0" max="59" required>
+        </div>
+        <div class="input-wrapper time-input-wrapper">
+            <select id="time-end-ampm" required>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+                <hr>
+                
+                <div class="privacy-note">
+                    <i class="fa-solid fa-lock"></i>
+                    <b>Your documents are private.</b> Our app only uses them to verify your space. They will not be shared publicly.
+                </div>
+                
+                <div class="file-upload-group">
+                    <label for="photo1">Photo of Location (View 1)</label>
+                    <input type="file" id="photo1" accept="image/jpeg, image/png" required>
+                </div>
+                
+                <div class="file-upload-group">
+                    <label for="document">Property Document (PDF, JPG, PNG)</label>
+                    <input type="file" id="document" accept=".pdf, image/jpeg, image/png" required>
+                </div>
+                
+                <button type="button" class="btn btn-primary" id="btn-next-step-2">Next</button>
+            </div>
+            
+            <div class="form-step" id="step-2">
+                <h3>Step 2: Payout Details</h3>
+                <p>Enter your bank details to receive payments from your bookings.</p>
+                
+                <div class="form-group">
+                    <label for="bank-name">Account Holder Name</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user-tie icon-left"></i>
+                        <input type="text" id="bank-name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bank-account">Bank Account Number</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-university icon-left"></i>
+                        <input type="text" id="bank-account" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bank-ifsc">IFSC Code</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-hashtag icon-left"></i>
+                        <input type="text" id="bank-ifsc" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="btn-final-submit">Submit for Verification</button>
+            </div>
+        </form>
+        
+        <div class="loader" id="form-loader"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+    <script src="../config.js"></script>
+    <script src="provider.js"></script>
+
+    
+
+</body>
+</html>
