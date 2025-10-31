@@ -45,45 +45,70 @@ function goToStep(stepNumber) {
     document.getElementById('form-title').textContent = document.querySelector(`#step-${stepNumber} h3`).textContent;
 }
 
-// Button listener for "Next"
-// Button listener for "Next" (NOW WITH VALIDATION)
+// Button listener for "Next" (CORRECTED VALIDATION)
 document.getElementById('btn-next-step-2').addEventListener('click', () => {
     
-    // --- VALIDATION START ---
     let isValid = true;
     const errorMessages = [];
     
-    // 1. Get all inputs in Step 1 that have the 'required' attribute
-    const requiredInputs = document.querySelectorAll('#step-1 input[required]');
+    // --- 1. Get all required inputs AND selects in Step 1 ---
+    const requiredFields = document.querySelectorAll('#step-1 [required]');
     
-    requiredInputs.forEach(input => {
-        // Check if the value (after trimming whitespace) is empty
-        if (input.value.trim() === '') {
+    requiredFields.forEach(field => {
+        // Check if the value (after trimming) is empty
+        if (field.value.trim() === '') {
             isValid = false;
-            // Get the label text for a user-friendly error
-            const label = input.closest('.form-group, .file-upload-group').querySelector('label');
-            errorMessages.push(label ? label.textContent : 'A required field');
+            
+            // Logic to get the user-friendly label (e.g., 'Listing Name')
+            let label;
+            if (field.closest('.form-group')) {
+                label = field.closest('.form-group').querySelector('label');
+            } else if (field.closest('.file-upload-group')) {
+                label = field.closest('.file-upload-group').querySelector('label');
+            }
+            
+            // Handle specific time fields that have no main label
+            if (field.id.includes('time-start-hr')) {
+                errorMessages.push('Available From: Hour');
+            } else if (field.id.includes('time-start-min')) {
+                errorMessages.push('Available From: Minute');
+            } else if (field.id.includes('time-end-hr')) {
+                errorMessages.push('Available To: Hour');
+            } else if (field.id.includes('time-end-min')) {
+                errorMessages.push('Available To: Minute');
+            } else {
+                errorMessages.push(label ? label.textContent : 'A required field');
+            }
+        }
+        // Check for number range (for the minutes input)
+        else if (field.type === 'number') {
+            const val = parseInt(field.value);
+            const min = parseInt(field.min);
+            const max = parseInt(field.max);
+            if (val < min || val > max) {
+                isValid = false;
+                let timeLabel = (field.id.includes('start')) ? 'Available From' : 'Available To';
+                errorMessages.push(timeLabel + ' minutes must be between 0 and 59');
+            }
         }
     });
 
-    // 2. Special check for the map
+    // --- 2. Special check for the map ---
     const lat = document.getElementById('lat').value;
     if (!lat) {
         isValid = false;
         errorMessages.push('Exact Location Address (pinned on map)');
     }
     
-    // --- VALIDATION END ---
-
+    // --- 3. Show errors or move to next step ---
     if (isValid) {
-        // If everything is good, go to the next step
         goToStep(2);
     } else {
-        // If something is missing, show an alert
-        alert('Please fill in all required fields:\n\n• ' + errorMessages.join('\n• '));
+        // Use a Set to remove duplicate error messages and present a clean list
+        const uniqueErrors = [...new Set(errorMessages)];
+        alert('Please fill in all required fields:\n\n• ' + uniqueErrors.join('\n• '));
     }
 });
-
 
 // --- 5. NEW GOOGLE MAP LOGIC ---
 let map;
@@ -222,7 +247,18 @@ form.addEventListener('submit', async (e) => {
         await database.ref('users/' + currentUser.uid + '/payoutDetails').set(payoutDetails);
         await database.ref('users/' + currentUser.uid + '/phone').set(phone);
         
-        // 2. Save Property Details to the public parkingSpots list
+        // 2. Combine the new time fields
+        
+        // Helper function to pad numbers (e.g., 7 -> "07")
+        const pad = (num) => String(num).padStart(2, '0');
+
+        const startMin = pad(document.getElementById('time-start-min').value);
+        const endMin = pad(document.getElementById('time-end-min').value);
+
+        const startTime = `${document.getElementById('time-start-hr').value}:${startMin} ${document.getElementById('time-start-ampm').value}`;
+        const endTime = `${document.getElementById('time-end-hr').value}:${endMin} ${document.getElementById('time-end-ampm').value}`;
+        
+        // 3. Save Property Details to the public parkingSpots list
         const totalSlots = parseInt(document.getElementById('total-slots').value);
         const spotData = {
             providerId: currentUser.uid,
@@ -239,8 +275,12 @@ form.addEventListener('submit', async (e) => {
             totalSlots: totalSlots,
             availableSlots: totalSlots,
             pricePerHour: parseFloat(document.getElementById('price').value),
-            availableTimeStart: document.getElementById('time-start').value,
-            availableTimeEnd: document.getElementById('time-end').value,
+            
+            // --- THESE TWO LINES ARE UPDATED ---
+            availableTimeStart: startTime,
+            availableTimeEnd: endTime,
+            // --- END OF UPDATE ---
+            
             status: "pending_verification", 
             photos: {
                 photo1_url: photo1_url,
@@ -256,13 +296,12 @@ form.addEventListener('submit', async (e) => {
         await database.ref('parkingSpots').push(spotData);
         await database.ref('users/' + currentUser.uid + '/role').set('provider_pending');
 
-        // --- C: FINISH ---
+       // --- C: FINISH ---
         loader.style.display = 'none';
         alert('Success! Your space has been submitted for verification. We will review it shortly.');
-        form.reset();
-        goToStep(1); 
-        finalSubmitBtn.disabled = false;
-        finalSubmitBtn.textContent = 'Submit for Verification';
+        
+        // NEW: Redirect to the home page
+        window.location.href = '../index.html';
 
     } catch (error) {
         console.error("Error submitting form:", error);

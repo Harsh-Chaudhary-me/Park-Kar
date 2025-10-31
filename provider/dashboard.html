@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Dashboard - Par-Kar</title>
+    
+    <link rel="stylesheet" href="dashboard.css">
+    
+    <link rel="stylesheet" href="../login/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <div class="container">
+            <h2>Provider Dashboard</h2>
+            <a href="../actions.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-actions">
+            <h3>My Spaces</h3>
+            <a href="register_space.html" class="btn btn-primary">
+                <i class="fa-solid fa-plus"></i> List a New Space
+            </a>
+        </div>
+        
+        <div id="spaces-list-container">
+            <div class="loader" id="loader"></div>
+            <p id="no-spaces-message" style="display: none;">You have not listed any spaces yet.</p>
+        </div>
+    </main>
+
+    <script src="../config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>

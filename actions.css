@@ -71,7 +71,9 @@ h1 {
     width: 40px;
     height: 40px;
 }
-
+#ev-icon{
+    color: #B4EC51;
+}
 /* Text content */
 .card-content h3 {
     font-size: 20px;
