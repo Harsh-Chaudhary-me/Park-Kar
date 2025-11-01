@@ -11,3 +11,5 @@ const firebaseConfig = {
 };
 
 const GOOGLE_MAPS_API_KEY = "PASTE_YOUR_GOOGLE_MAPS_KEY_HERE";
+
+const GOOGLE_MAPS_MAP_ID = "PASTE_YOUR_GOOGLE_MAP_ID_HERE";

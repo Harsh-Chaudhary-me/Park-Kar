@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Find Parking - Par-Kar</title>
+    
+    <link rel="stylesheet" href="map-style.css">
+    <link rel="stylesheet" href="../login/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .user-marker-pin {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: grid;
+            place-items: center;
+            border: 2px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .user-marker-pin i {
+            transform: rotate(45deg);
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="map-container"></div>
+    <div class="top-ui-container">
+        <a href="../actions.html" class="icon-button" id="btn-back"><i class="fas fa-bars"></i></a>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search parking location...">
+        </div>
+        <button class="icon-button" id="btn-filter-toggle"><i class="fas fa-filter"></i></button>
+        <button class="icon-button" id="btn-locate-me"><i class="fas fa-location-crosshairs"></i></button>
+    </div>
+    <div class="filter-chips-container">
+        <div class="chip" data-filter="ev-only"><i class="fas fa-bolt"></i> EV Only</div>
+        <div class="chip" data-filter="available"><i class="fas fa-check"></i> Available Now</div>
+        <div class="chip" data-filter="under-200"><i class="fas fa-indian-rupee-sign"></i> Under ₹200</div>
+        <div class="chip" data-filter="10km"><i class="fas fa-map-marker-alt"></i> 10 km</div>
+    </div>
+    <div class="bottom-sheet" id="bottom-sheet">
+        <div class="handle"></div>
+        <h3>Nearby Locations</h3>
+        <div class="location-list" id="location-list">
+             <div class="loader" id="loader"></div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-booking-modal">&times;</span>
+            <h3>Book Your Slot</h3>
+            <p>You are booking for: <strong id="modal-location-name"></strong></p>
+            <form id="booking-form">
+                <input type="hidden" id="booking-location-id">
+                <div class="form-group">
+                    <label for="vehicle-type">Vehicle Type</label>
+                    <select id="vehicle-type" required>
+                        <option value="4-wheeler">4-Wheeler</option>
+                        <option value="2-wheeler">2-Wheeler</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-number">Vehicle Number</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-car icon-left"></i>
+                        <input type="text" id="vehicle-number" placeholder="e.g., DL 01 AB 1234" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (in hours)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-clock icon-left"></i>
+                        <input type="number" id="duration" value="1" min="1" max="12" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-overlay" id="location-prompt-overlay">
+        <div class="modal-content">
+            <h3>Location Access Required</h3>
+            <p>Location is required to find nearby parking. Please enable it in your browser.</p>
+            <button id="btn-retry-location" class="btn btn-primary">Retry</button>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="map-logic.js"></script>
+</body>
+</html>
