@@ -179,27 +179,42 @@ function generateDummyData(centerPos) {
 
     // Dummy EV
     dummies.push({
-        "id": "dummy-ev-1", "name": "Nearby EV Station (Demo)",
+        "id": "dummy-ev-1", "name": "Harsh EV Station ",
         "lat": centerPos.lat + randOffset(), "lng": centerPos.lng + randOffset(),
         "availableSlots": 3, "totalSlots": 4, "evSlots": 4,
-        "pricePerHour": 18, "type": "EV", "status": "verified"
+        "pricePerHour": 80, "type": "EV", "status": "verified"
     });
 
     // Dummy EV+Parking
     dummies.push({
-        "id": "dummy-both-1", "name": "Local Hotel Parking (Demo)",
+        "id": "dummy-both-1", "name": "Fortune Hotel marking",
         "lat": centerPos.lat + randOffset(), "lng": centerPos.lng + randOffset(),
         "availableSlots": 10, "totalSlots": 20, "evSlots": 2,
-        "pricePerHour": 5, "type": "EV+Parking", "status": "verified"
+        "pricePerHour": 50, "type": "EV+Parking", "status": "verified"
     });
 
     // --- NEW: UNAVAILABLE DEMO SPOT ---
     dummies.push({
-        "id": "dummy-full-1", "name": "Full Parking Lot (Demo)",
+        "id": "dummy-full-1", "name": "Ankush's Parking Area",
         "lat": centerPos.lat + randOffset(), "lng": centerPos.lng + randOffset(),
         "availableSlots": 0, // No slots
         "totalSlots": 30, "evSlots": 0,
-        "pricePerHour": 3, "type": "Parking", "status": "verified"
+        "pricePerHour": 30, "type": "Parking", "status": "verified"
+    });
+
+    dummies.push({
+        "id": "dummy-ev-1", "name": "Aviraj EV",
+        "lat": centerPos.lat + randOffset(), "lng": centerPos.lng + randOffset(),
+        "availableSlots": 10, // No slots
+        "totalSlots": 30, "evSlots": 0,
+        "pricePerHour": 30, "type": "Parking", "status": "verified"
+    });
+     // Dummy EV+Parking
+    dummies.push({
+        "id": "dummy-both-1", "name": "Rahul SIngh Villa",
+        "lat": centerPos.lat + randOffset(), "lng": centerPos.lng + randOffset(),
+        "availableSlots": 1, "totalSlots": 2, "evSlots": 2,
+        "pricePerHour": 50, "type": "EV+Parking", "status": "verified"
     });
     
     return dummies;
